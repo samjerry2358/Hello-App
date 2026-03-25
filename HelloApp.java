@@ -3,26 +3,20 @@ public class HelloApp {
 
         String name;
 
-        // Default value if no arguments
         if (args.length == 0) {
-            name = "Guest";
+            name = "World"; // Default value
         } else {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
 
-            // Enhanced for loop
+            // Add all names with ", "
             for (String n : args) {
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(n);
-                first = false;
+                nameBuilder.append(n).append(", ");
             }
 
-            name = nameBuilder.toString();
+            // Remove last ", "
+            name = nameBuilder.substring(0, nameBuilder.length() - 2);
         }
 
-        // Output
         System.out.println("Hello, " + name + "!");
     }
 }
