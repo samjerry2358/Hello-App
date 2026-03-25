@@ -3,26 +3,20 @@ public class HelloApp {
 
         String name;
 
-        // Check if arguments are provided
         if (args.length == 0) {
-            name = "Guest"; // Default value
+            name = "World"; // Default value
         } else {
-            // Build string from multiple arguments
             StringBuilder nameBuilder = new StringBuilder();
 
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-
-                // Add comma between names
-                if (i < args.length - 1) {
-                    nameBuilder.append(", ");
-                }
+            // Add all names with ", "
+            for (String n : args) {
+                nameBuilder.append(n).append(", ");
             }
 
-            name = nameBuilder.toString();
+            // Remove last ", "
+            name = nameBuilder.substring(0, nameBuilder.length() - 2);
         }
 
-        // Output
         System.out.println("Hello, " + name + "!");
     }
 }
